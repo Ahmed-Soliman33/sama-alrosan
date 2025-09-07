@@ -84,11 +84,11 @@ const HeroSection = ({
   return (
     <>
       {/* Loading Screen - يظهر فقط أثناء تحميل الوسائط */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {isLoading && (
           <LoadingScreen isVisible={true} message="جاري تحميل المحتوى..." />
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
       {/* Hero Section */}
       <section className={sectionClasses} {...props}>

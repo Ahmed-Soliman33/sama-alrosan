@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import "./assets/fonts/fonts.css";
+
+@theme {
+  --color-primaryColor: #1a1e24;
+  --color-secondaryColor: #d3a851;
+  --color-tertiaryColor: #f7f5ed;
+  --color-grayColor: #707070;
+  --color-primaryTextColor: #1a1e24;
+  --color-secondaryTextColor: #f7f5ed;
+
+  --font-tajawal: "tajawal", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-tajawal text-primaryTextColor bg-white;
+  }
+}
+
+* {
+  direction: rtl;
+}

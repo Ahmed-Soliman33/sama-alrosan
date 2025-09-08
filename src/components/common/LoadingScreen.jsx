@@ -2,12 +2,7 @@ import { motion } from "framer-motion";
 import Logo from "./Logo";
 import PropTypes from "prop-types";
 
-const LoadingScreen = ({
-  isVisible = true,
-  progress = 0,
-  message = "جاري التحميل...",
-  showProgress = true,
-}) => {
+const LoadingScreen = ({ isVisible = true, message = "جاري التحميل..." }) => {
   if (!isVisible) return null;
 
   return (
@@ -38,7 +33,7 @@ const LoadingScreen = ({
         >
           {/* Glow Effect */}
           <motion.div
-            className="bg-secondaryColor/80 absolute -inset-4 rounded-full blur-xl"
+            className="bg-secondaryColor/80 absolute -inset-4 mb-10 rounded-full blur-xl"
             animate={{
               scale: [1, 1.1, 1],
               opacity: [0.3, 0.6, 0.3],
@@ -56,30 +51,8 @@ const LoadingScreen = ({
           </div>
         </motion.div>
 
-        {/* Progress Bar (if enabled) */}
-        {showProgress && (
-          <div className="mt-20 w-48 md:w-64">
-            <div className="text-grayColor mb-2 flex justify-between text-sm">
-              <span>{message}</span>
-              <span>{Math.round(progress)}%</span>
-            </div>
-
-            <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
-              <motion.div
-                className="from-secondaryColor to-secondaryColor/80 h-full bg-gradient-to-r"
-                initial={{ width: 0 }}
-                animate={{ width: `${progress}%` }}
-                transition={{
-                  duration: 0.3,
-                  ease: "easeOut",
-                }}
-              />
-            </div>
-          </div>
-        )}
-
         {/* Floating Dots Animation */}
-        <div className="absolute bottom-10 flex space-x-2">
+        <div className="absolute bottom-0 flex space-x-2">
           {[0, 1, 2].map((index) => (
             <motion.div
               key={index}
@@ -110,7 +83,7 @@ const LoadingScreen = ({
             ease: "easeInOut",
           }}
         >
-          {!showProgress && message}
+          {message}
         </motion.p>
       </div>
 
@@ -134,7 +107,6 @@ LoadingScreen.propTypes = {
   isVisible: PropTypes.bool,
   progress: PropTypes.number,
   message: PropTypes.string,
-  showProgress: PropTypes.bool,
 };
 
 export default LoadingScreen;

@@ -4,18 +4,15 @@ const Logo = ({
   width = "280.5px",
   height = "161px",
   className = "",
-  onClick = null,
   alt = "سما الرياض - شعار الشركة",
 }) => {
   const handleClick = () => {
-    if (onClick) {
-      onClick();
-    }
+    window.location.href = "/";
   };
 
   return (
     <div
-      className={`flex items-center justify-center ${onClick ? "cursor-pointer" : ""} ${className}`}
+      className={`flex cursor-pointer items-center justify-center ${className}`}
       onClick={handleClick}
       style={{ width, height }}
     >
@@ -33,7 +30,6 @@ Logo.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   className: PropTypes.string,
-  onClick: PropTypes.func,
   alt: PropTypes.string,
 };
 

@@ -75,7 +75,8 @@ const HeroSection = ({
       "absolute bottom-0 right-0 flex items-end justify-end pb-20 pr-20",
   };
 
-  const sectionClasses = `relative ${height} ${className}`.trim();
+  const sectionClasses =
+    `relative ${height} ${className} overflow-hidden`.trim();
   const overlayClasses =
     `absolute top-0 left-0 h-full w-full ${overlayGradient} ${overlayClassName}`.trim();
   const contentClasses =
@@ -83,12 +84,12 @@ const HeroSection = ({
 
   return (
     <>
-      {/* Loading Screen - يظهر فقط أثناء تحميل الوسائط */}
-      {/* <AnimatePresence>
+      {/* Loading Screen */}
+      <AnimatePresence>
         {isLoading && (
           <LoadingScreen isVisible={true} message="جاري تحميل المحتوى..." />
         )}
-      </AnimatePresence> */}
+      </AnimatePresence>
 
       {/* Hero Section */}
       <section className={sectionClasses} {...props}>
@@ -97,7 +98,7 @@ const HeroSection = ({
           {video ? (
             <motion.video
               src={video}
-              className="h-full w-full object-cover"
+              className="h-full min-h-[60vh] w-full object-cover object-center"
               autoPlay={autoPlay}
               muted={muted}
               loop={loop}
@@ -112,7 +113,7 @@ const HeroSection = ({
           ) : image ? (
             <motion.img
               src={image}
-              className="h-full w-full object-cover"
+              className="h-full min-h-[60vh] w-full object-cover object-center"
               alt={alt}
               onLoad={handleMediaLoad}
               onError={handleMediaError}

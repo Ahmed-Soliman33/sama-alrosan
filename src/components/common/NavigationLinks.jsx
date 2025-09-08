@@ -9,7 +9,8 @@ const NavigationLinks = ({ isMobile = false, className = "" }) => {
   ];
 
   const baseClasses = "font-tajawal transition-colors duration-200";
-  const desktopClasses = "text-secondaryTextColor font-bold text-base";
+  const desktopClasses =
+    "text-secondaryTextColor font-bold text-[.9rem] xl:text-base ";
   const mobileClasses =
     "text-secondaryTextColor hover:text-secondaryColor block px-3 py-2 text-base";
   const activeClasses = "text-secondaryColor";
@@ -21,7 +22,7 @@ const NavigationLinks = ({ isMobile = false, className = "" }) => {
           <Link
             key={index}
             to={item.path}
-            className={` ${baseClasses} ${mobileClasses} ${item.isActive ? activeClasses : ""} `}
+            className={` ${baseClasses} ${mobileClasses}`}
           >
             {item.name}
           </Link>
@@ -31,14 +32,12 @@ const NavigationLinks = ({ isMobile = false, className = "" }) => {
   }
 
   return (
-    <div
-      className={`flex items-center space-x-20 rtl:space-x-reverse ${className}`}
-    >
+    <div className={`flex items-center space-x-14 xl:space-x-20 ${className}`}>
       {navigationItems.map((item, index) => (
         <Link
           key={index}
           to={item.path}
-          className={` ${baseClasses} ${desktopClasses} ${item.isActive ? activeClasses : ""} `}
+          className={` ${baseClasses} ${desktopClasses}`}
         >
           {item.name}
         </Link>

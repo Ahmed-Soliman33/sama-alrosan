@@ -33,21 +33,31 @@ const Button = ({
       {...props}
     >
       {/* Background layer */}
-      <motion.div
-        className={`absolute inset-x-0 top-0 ${bgColor}`}
-        variants={{
-          initial: {
-            height: animated ? `${initialHeight}%` : "100%",
-          },
-          hover: {
-            height: "100%",
-          },
-        }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut",
-        }}
-      />
+      {animated ? (
+        <motion.div
+          className={`absolute inset-x-0 top-0 ${bgColor}`}
+          variants={{
+            initial: {
+              height: animated ? `${initialHeight}%` : "100%",
+            },
+            hover: {
+              height: "100%",
+            },
+          }}
+          transition={{
+            duration: 0.3,
+            ease: "easeInOut",
+          }}
+        />
+      ) : (
+        <motion.div
+          className={`absolute inset-0 top-0 ${bgColor}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          style={{ height: "100%" }}
+        />
+      )}
 
       {/* Content */}
       <span className={`relative z-10`}>{children}</span>

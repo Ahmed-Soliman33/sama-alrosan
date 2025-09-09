@@ -20,7 +20,7 @@ const MainLayout = () => {
 
       {/* Main content with smooth transitions */}
       <motion.main
-        className="flex-1"
+        className="min-h-[1500px] flex-1"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}

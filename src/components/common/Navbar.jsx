@@ -4,10 +4,13 @@ import NavigationLinks from "./NavigationLinks";
 import Button from "./Button";
 import MobileMenu from "./MobileMenu";
 import { useNavigate } from "react-router-dom";
+import useMediaQuery from "@hooks/useMediaQuery";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -23,7 +26,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 right-0 left-0 z-50 bg-transparent">
+      <nav className="absolute top-0 right-0 left-0 z-50 bg-transparent">
         <div className="mx-auto px-3 pt-4 sm:px-6 lg:px-20">
           <div className="flex max-h-20 items-center justify-between">
             {/* Mobile menu button */}
@@ -87,7 +90,8 @@ const Navbar = () => {
             <div className="mb-[-10px]">
               <Button
                 onClick={handleRegisterClick}
-                className="px-1 py-1 text-base font-bold text-black md:px-2 md:py-2 md:text-xl xl:px-4 xl:text-2xl"
+                className="px-1 py-1 text-[.9rem] font-bold text-black md:px-2 md:py-2 md:text-xl xl:px-4 xl:text-2xl"
+                animated={!isMobile}
               >
                 سجل اهتمامك
               </Button>

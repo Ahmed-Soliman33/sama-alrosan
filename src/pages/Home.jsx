@@ -21,8 +21,11 @@ const Home = () => {
 
         <ServiceIntro />
       </div>
-      <ServiceIntro />
-      <ServiceIntro />
+
+      <div className="h-[50vh] text-center">
+        {/* <hr />
+        <h1 className="text-4xl text-red-500">Content</h1> */}
+      </div>
     </>
   );
 };

@@ -2,12 +2,12 @@
 @import "./assets/fonts/fonts.css";
 
 @theme {
-  --color-primaryColor: #1a1e24;
+  --color-primaryColor: #1a1e23;
   --color-secondaryColor: #d3a851;
   --color-tertiaryColor: #f7f5ed;
   --color-grayColor: #707070;
   --color-primaryTextColor: #1a1e24;
-  --color-secondaryTextColor: #f7f5ed;
+  --color-secondaryTextColor: #f5f2ea;
 
   --font-tajawal: "tajawal", sans-serif;
 }

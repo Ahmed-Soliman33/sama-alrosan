@@ -134,7 +134,7 @@ const MobileMenu = ({ isOpen, onClose, onRegisterClick }) => {
                   bgColor="bg-secondaryColor"
                   animated={false}
                 >
-                  سجل اهتمامك الان
+                  سجل اهتمامك الآن
                 </Button>
               </motion.div>
 

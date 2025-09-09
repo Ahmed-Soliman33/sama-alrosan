@@ -13,7 +13,7 @@ const Button = ({
   ...props
 }) => {
   // Base button styles
-  const baseClasses = `font-tajawal cursor-pointer transition-colors duration-200 relative overflow-hidden  disabled:opacity-50 disabled:cursor-not-allowed`;
+  const baseClasses = `font-tajawal cursor-pointer transition-colors duration-200 relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed`;
 
   // Width styles
 

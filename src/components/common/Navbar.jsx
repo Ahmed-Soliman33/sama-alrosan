@@ -28,7 +28,7 @@ const Navbar = () => {
     <>
       <nav className="absolute top-0 right-0 left-0 z-50 bg-transparent">
         <div className="mx-auto px-3 pt-4 sm:px-6 lg:px-20">
-          <div className="flex max-h-20 items-center justify-between">
+          <div className="grid max-h-20 grid-cols-3 items-center justify-between md:flex">
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
@@ -74,7 +74,7 @@ const Navbar = () => {
             </div>
 
             {/* Logo - Right side for Arabic layout */}
-            <div className="flex flex-shrink-0 items-center">
+            <div className="flex flex-shrink-0 items-center justify-self-center">
               <div className="hidden xl:block">
                 <Logo width="12rem" height="6rem" />
               </div>
@@ -87,7 +87,7 @@ const Navbar = () => {
             </div>
 
             {/* Register Button - Left side */}
-            <div className="mb-[-10px]">
+            <div className="mb-[-10px] ml-2 justify-self-end">
               <Button
                 onClick={handleRegisterClick}
                 className="px-1 py-1 text-[.9rem] font-bold text-black md:px-2 md:py-2 md:text-xl xl:px-4 xl:text-2xl"

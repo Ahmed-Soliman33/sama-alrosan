@@ -9,7 +9,7 @@ const Button = ({
   type = "button",
   animated = true,
   bgColor = "bg-white",
-  initialHeight = 70, // النسبة المئوية للارتفاع الأولي
+  initialHeight = 70,
   ...props
 }) => {
   // Base button styles
@@ -67,7 +67,6 @@ const Button = ({
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  size: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   className: PropTypes.string,

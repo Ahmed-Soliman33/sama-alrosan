@@ -2,9 +2,6 @@
 
 @plugin "tailwindcss-animate";
 @import "./assets/fonts/fonts.css";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme {
   --color-primaryColor: #1a1e23;

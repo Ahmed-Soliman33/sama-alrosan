@@ -9,7 +9,7 @@ const BANNERS = [
     id: 1,
     image: banner_1,
     title: "بنية تحتية مكتملة",
-    className: "col-span-2 row-span-2",
+    className: "md:col-span-2 row-span-2",
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const BANNERS = [
 
 const FooterBannersSection = () => {
   return (
-    <section className="grid grid-flow-col grid-rows-2 gap-2 py-20 sm:gap-4 md:pb-40 lg:gap-x-12 lg:gap-y-11">
+    <section className="grid grid-cols-1 grid-rows-2 gap-8 py-20 md:grid-flow-col md:pb-40 lg:gap-x-12 lg:gap-y-11">
       {BANNERS.map((banner) => (
         <div className={`${banner.className} overflow-hidden`} key={banner.id}>
           <motion.img
@@ -53,11 +53,11 @@ export default FooterBannersSection;
 
 export const FooterBannersSkeleton = () => {
   return (
-    <section className="grid grid-flow-col grid-rows-2 gap-2 py-20 sm:gap-4 md:pb-40 lg:gap-x-12 lg:gap-y-11">
+    <section className="grid grid-cols-1 grid-rows-2 gap-8 py-20 md:grid-flow-col md:pb-40 lg:gap-x-12 lg:gap-y-11">
       {BANNERS.map((banner) => (
         <div className={`${banner.className} overflow-hidden`} key={banner.id}>
           <Skeleton
-            className={`${banner.id === 1 ? "h-[45vh] w-[65vw]" : "h-[20vh] w-[40vw]"} rounded-none`}
+            className={`${banner.id === 1 ? "h-[14.5rem] w-[100vw] md:h-[45vh] md:w-[65vw]" : "h-[14.5rem] w-[100vw] md:h-[20vh] md:w-[40vw]"} rounded-none`}
           />
           <h3 className="sr-only absolute bottom-8 left-1/2 -translate-x-1/2 text-lg font-semibold text-white md:text-2xl">
             {banner.title}

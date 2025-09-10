@@ -14,7 +14,7 @@ const HeroSection = ({
   className = "",
 
   // Overlay props
-  overlay = true,
+  overlay = false,
   overlayGradient = "bg-gradient-to-b from-black/90 via-black/40 to-transparent",
   overlayClassName = "",
 

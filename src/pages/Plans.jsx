@@ -1,6 +1,10 @@
 import HeroSection from "@components/common/HeroSection";
 import SEOHelmet from "@components/common/SEOHelmet";
 import heroImage from "@assets/images/plans/plans-page-hero.webp";
+import { PlansSectionSkeleton } from "@components/plans/PlansSection";
+import { lazy, Suspense } from "react";
+
+const PlansSection = lazy(() => import("@components/plans/PlansSection"));
 
 const Plans = () => {
   return (
@@ -13,6 +17,10 @@ const Plans = () => {
       <HeroSection image={heroImage} overlay={false}>
         <h1 className="sr-only">المخططات</h1>
       </HeroSection>
+
+      <Suspense fallback={<PlansSectionSkeleton />}>
+        <PlansSection />
+      </Suspense>
     </>
   );
 };

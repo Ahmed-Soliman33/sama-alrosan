@@ -27,7 +27,7 @@ const BANNERS = [
 
 const FooterBannersSection = () => {
   return (
-    <section className="grid grid-cols-1 grid-rows-2 gap-8 py-20 md:grid-flow-col md:pb-40 lg:gap-x-12 lg:gap-y-11">
+    <section className="grid grid-cols-1 grid-rows-2 gap-8 py-20 md:grid-cols-3 md:pb-40 lg:gap-x-12 lg:gap-y-11">
       {BANNERS.map((banner) => (
         <div className={`${banner.className} overflow-hidden`} key={banner.id}>
           <motion.img

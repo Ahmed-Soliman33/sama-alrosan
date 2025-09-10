@@ -5,6 +5,7 @@ import Home from "@pages/Home";
 import Plans from "@pages/Plans";
 import About from "@pages/About";
 import Register from "@pages/Register";
+import PlansDetailsPage from "@pages/PlansDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "plans", element: <Plans /> },
+      { path: "plans/:planId", element: <PlansDetailsPage /> },
       { path: "about", element: <About /> },
       { path: "register", element: <Register /> },
     ],

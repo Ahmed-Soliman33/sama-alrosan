@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
+import { useNavigate } from "react-router-dom";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -47,10 +48,11 @@ const PROJECTS = [
 ];
 
 const DiscoverOurPlans = () => {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const handlePlanClick = (projectId) => {
-    console.log("Clicked project ID:", projectId);
+    navigate(`/plans/${projectId}`);
   };
 
   return (
@@ -135,7 +137,7 @@ const DiscoverOurPlans = () => {
                     y: -5,
                     transition: { duration: 0.3, ease: "easeOut" },
                   }}
-                  className="group"
+                  className="group cursor-pointer"
                   onClick={() => {
                     handlePlanClick(project.id);
                   }}
@@ -171,10 +173,6 @@ const DiscoverOurPlans = () => {
                         {project.title}
                       </motion.h3>
                     </div>
-
-                    {/* Decorative Elements */}
-                    <div className="bg-secondaryColor/10 absolute top-0 left-0 h-20 w-20 -translate-x-10 -translate-y-10 rounded-full transition-transform duration-500 group-hover:scale-150" />
-                    <div className="absolute right-0 bottom-0 h-16 w-16 translate-x-8 translate-y-8 rounded-full bg-white/5 transition-transform duration-500 group-hover:scale-125" />
                   </div>
                 </motion.div>
               </SwiperSlide>

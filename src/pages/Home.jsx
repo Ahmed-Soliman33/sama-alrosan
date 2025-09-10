@@ -4,6 +4,10 @@ import SEOHelmet from "@components/common/SEOHelmet";
 import ServiceIntro from "@components/home/ServiceIntro";
 import CallToAction from "@components/home/CallToAction";
 import ServicesSection from "@components/home/ServicesSection";
+import DiscoverOurPlans, {
+  DiscoverOurPlansSkeleton,
+} from "@components/home/DiscoverOurPlans";
+import { Suspense } from "react";
 
 const Home = () => {
   return (
@@ -24,6 +28,10 @@ const Home = () => {
       </div>
 
       <ServicesSection />
+
+      <Suspense fallback={<DiscoverOurPlansSkeleton />}>
+        <DiscoverOurPlans />
+      </Suspense>
 
       <div className="h-[50vh] text-center"></div>
     </>

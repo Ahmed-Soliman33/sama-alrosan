@@ -3,6 +3,7 @@ import heroImage from "@assets/images/home/home-hero.webp";
 import SEOHelmet from "@components/common/SEOHelmet";
 import ServiceIntro from "@components/home/ServiceIntro";
 import CallToAction from "@components/home/CallToAction";
+import ServicesSection from "@components/home/ServicesSection";
 
 const Home = () => {
   return (
@@ -22,10 +23,9 @@ const Home = () => {
         <ServiceIntro />
       </div>
 
-      <div className="h-[50vh] text-center">
-        {/* <hr />
-        <h1 className="text-4xl text-red-500">Content</h1> */}
-      </div>
+      <ServicesSection />
+
+      <div className="h-[50vh] text-center"></div>
     </>
   );
 };

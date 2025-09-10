@@ -1,3 +1,4 @@
+import Heading from "@components/common/Heading";
 import useMediaQuery from "@hooks/useMediaQuery";
 
 const ServiceIntro = () => {
@@ -23,9 +24,13 @@ const ServiceIntro = () => {
                 fill="#d3a851"
               />
             </svg>
-            <h1 className="self-end pt-2 text-[1.4rem] font-bold sm:pt-3 sm:text-2xl md:pt-5 md:text-3xl lg:text-4xl xl:pt-8 xl:text-5xl">
+
+            <Heading
+              baseStyle={false}
+              className="self-end pt-2 text-[1.4rem] font-bold sm:pt-3 sm:text-2xl md:pt-5 md:text-3xl lg:text-4xl xl:pt-8 xl:text-5xl"
+            >
               مخططات سكنية مختارة
-            </h1>
+            </Heading>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={isTablet ? "35" : "45.037"}

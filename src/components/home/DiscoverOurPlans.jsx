@@ -54,7 +54,7 @@ const DiscoverOurPlans = () => {
   };
 
   return (
-    <section className="px-4 py-20">
+    <section className="px-4 py-20 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <motion.div

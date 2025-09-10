@@ -47,9 +47,9 @@ const PlansSection = () => {
 
   return (
     <section className="px-5 pt-24 pb-36 md:px-14 lg:px-20 xl:px-28">
-      <div className="mb-14 text-center">
+      <div className="mb-10 text-center md:mb-14">
         <Heading>اكتشف مخططاتنا</Heading>
-        <p className="text-primaryTextColor/90 pt-2 text-[2.1rem] sm:text-3xl lg:text-3xl xl:text-4xl">
+        <p className="text-primaryTextColor/90 pt-2 text-[1.6rem] sm:text-3xl lg:text-3xl xl:text-4xl">
           جودة تبني مستقبلك، تملّك بثقة اليوم
         </p>
       </div>

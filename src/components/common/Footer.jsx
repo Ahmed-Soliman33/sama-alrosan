@@ -60,7 +60,7 @@ const Footer = () => {
 
   return (
     <motion.footer
-      className="bg-primaryColor text-secondaryTextColor relative min-h-[423px] overflow-hidden bg-[url('/sama_footer.webp')] bg-[length:50rem_auto] bg-[0px_245px] bg-no-repeat sm:bg-[length:80rem_auto] sm:bg-[0px_140px] xl:bg-[length:120rem_auto] xl:bg-[0px_0px]"
+      className="bg-primaryColor text-secondaryTextColor relative min-h-[423px] overflow-hidden bg-[url('/footer_pattern.webp')] bg-[length:50rem_auto] bg-[0px_245px] bg-no-repeat sm:bg-[length:80rem_auto] sm:bg-[0px_140px] xl:bg-[length:120rem_auto] xl:bg-[0px_0px]"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

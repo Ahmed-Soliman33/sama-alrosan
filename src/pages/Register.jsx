@@ -43,7 +43,16 @@ const Register = () => {
           </motion.p>
         </motion.div>
 
-        <RegistrationForm />
+        <RegistrationForm
+          visibleFields={[
+            "phone",
+            "name",
+            "planType",
+            "area",
+            "budget",
+            "city",
+          ]}
+        />
       </section>
     </>
   );

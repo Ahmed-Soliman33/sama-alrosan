@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
 
-import { Skeleton } from "@/components/ui/skeleton";
-
 import alwa7a from "@assets/images/home/alwa7a.webp";
 import aldmam from "@assets/images/home/aldmam.webp";
 import kharis from "@assets/images/home/kharis.webp";
@@ -186,7 +184,7 @@ const DiscoverOurPlans = () => {
       </div>
 
       {/* Custom Swiper Styles */}
-      <style jsx="true">{`
+      <style>{`
         .swiper-bullet-custom {
           background: #1a1e24 !important;
           opacity: 0.3 !important;

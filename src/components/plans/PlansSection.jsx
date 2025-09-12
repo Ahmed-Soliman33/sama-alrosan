@@ -132,7 +132,7 @@ export const PlansSectionSkeleton = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 justify-center gap-3 sm:gap-10 md:grid-cols-3 md:gap-5 lg:gap-14 xl:grid-cols-[repeat(auto-fit,minmax(330px,1fr))] 2xl:grid-cols-4">
+      <div className="grid grid-cols-2 justify-center gap-3 sm:gap-10 md:grid-cols-3 md:gap-5 lg:gap-16 xl:grid-cols-[repeat(auto-fit,minmax(330px,1fr))] 2xl:grid-cols-4">
         {PLANS.map((item) => (
           <div
             key={item.id}

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Button from "./Button";
 import currencyImage from "@assets/images/registration/SAR-currency.webp";
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ visibleFields }) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -19,15 +19,6 @@ const RegistrationForm = () => {
 
     // Allow only numbers and decimal point
     let cleanValue = value.toString().replace(/[^0-9.]/g, "");
-
-    // Prevent leading zeros (except for decimal numbers like 0.5)
-    if (
-      cleanValue.length > 1 &&
-      cleanValue[0] === "0" &&
-      cleanValue[1] !== "."
-    ) {
-      cleanValue = cleanValue.replace(/^0+/, "");
-    }
 
     // Ensure only one decimal point exists
     const parts = cleanValue.split(".");
@@ -56,15 +47,6 @@ const RegistrationForm = () => {
 
     // Allow only numbers and decimal point
     let cleanValue = value.replace(/[^0-9.]/g, "");
-
-    // Prevent leading zeros (except for decimal numbers like 0.5)
-    if (
-      cleanValue.length > 1 &&
-      cleanValue[0] === "0" &&
-      cleanValue[1] !== "."
-    ) {
-      cleanValue = cleanValue.replace(/^0+/, "");
-    }
 
     // Ensure only one decimal point exists
     const parts = cleanValue.split(".");
@@ -123,7 +105,7 @@ const RegistrationForm = () => {
 
   return (
     <motion.div
-      className="bg-primaryTextColor relative mx-auto mt-16 mb-20 px-4 pt-6 pb-16 sm:max-w-6xl sm:px-8 sm:pt-12 md:mb-44 md:pb-20 lg:max-w-5xl lg:px-13"
+      className="bg-primaryTextColor relative mx-auto my-16 px-4 pt-6 pb-16 sm:max-w-6xl sm:px-8 sm:pt-12 md:pb-20 lg:max-w-5xl lg:px-13"
       variants={containerVariants}
       initial="initial"
       animate="animate"
@@ -142,157 +124,173 @@ const RegistrationForm = () => {
         className="mt-10 space-y-4 sm:space-y-8 lg:mt-14 lg:space-y-11"
       >
         {/* Full Name */}
-        <motion.div
-          className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
-          variants={inputVariants}
-        >
-          <label className={labelClasses}>الاسم الكامل</label>
-          <motion.input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            className={inputClasses}
-            whileFocus="focus"
+        {visibleFields.includes("name") && (
+          <motion.div
+            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
             variants={inputVariants}
-            required
-          />
-        </motion.div>
+          >
+            <label className={labelClasses}>الاسم الكامل</label>
+            <motion.input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              className={inputClasses}
+              whileFocus="focus"
+              variants={inputVariants}
+              required
+            />
+          </motion.div>
+        )}
 
         {/* Phone Number */}
-        <motion.div
-          className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
-          variants={inputVariants}
-        >
-          <label className={labelClasses}>رقــــــم الجـــــوال</label>
-          <motion.input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            className={inputClasses}
-            whileFocus="focus"
+        {visibleFields.includes("phone") && (
+          <motion.div
+            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
             variants={inputVariants}
-            required
-          />
-        </motion.div>
+          >
+            <label className={labelClasses}>رقــــــم الجـــــوال</label>
+            <motion.input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              className={inputClasses}
+              whileFocus="focus"
+              variants={inputVariants}
+              required
+            />
+          </motion.div>
+        )}
 
         {/* City */}
-        <motion.div
-          className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
-          variants={inputVariants}
-        >
-          <label className={labelClasses}>المدينة المفضلة</label>
-          <motion.input
-            type="text"
-            name="city"
-            value={formData.city}
-            onChange={handleInputChange}
-            className={inputClasses}
-            whileFocus="focus"
+        {visibleFields.includes("city") && (
+          <motion.div
+            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
             variants={inputVariants}
-            required
-          />
-        </motion.div>
+          >
+            <label className={labelClasses}>المدينة المفضلة</label>
+            <motion.input
+              type="text"
+              name="city"
+              value={formData.city}
+              onChange={handleInputChange}
+              className={inputClasses}
+              whileFocus="focus"
+              variants={inputVariants}
+              required
+            />
+          </motion.div>
+        )}
 
         {/* Plan Type */}
-        <motion.div
-          className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
-          variants={inputVariants}
-        >
-          <label className={labelClasses}>نـــــــــــــوع المخــطط</label>
-          <div className="flex w-full justify-start gap-16 sm:gap-22 md:w-4/5 lg:w-3/5 lg:gap-26">
-            {["سكني", "تجاري"].map((type) => (
-              <motion.label
-                key={type}
-                className="flex cursor-pointer items-center"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <input
-                  type="radio"
-                  name="planType"
-                  value={type}
-                  checked={formData.planType === type}
-                  onChange={handleInputChange}
-                  className="sr-only"
-                />
-                <motion.div
-                  className={`ml-2 h-5 w-5 border-2 transition-colors duration-300 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-9 lg:w-9 ${
-                    formData.planType === type
-                      ? "border-secondaryColor bg-secondaryColor"
-                      : "border-[#707070]"
-                  }`}
-                  animate={{
-                    backgroundColor:
-                      formData.planType === type ? "#d3a851" : "transparent",
-                  }}
-                />
-                <span className="text-secondaryTextColor pt-2 pr-2 text-[1.1rem] sm:text-[1.3rem] md:text-[1.4rem] lg:pt-3 lg:pr-4 lg:text-[1.7rem]">
-                  {type}
-                </span>
-              </motion.label>
-            ))}
-          </div>
-        </motion.div>
+        {visibleFields.includes("planType") && (
+          <motion.div
+            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
+            variants={inputVariants}
+          >
+            <label className={labelClasses}>
+              {visibleFields.includes("city")
+                ? "نـــــــــــــوع المخــطط"
+                : "مجال الإهتمام"}
+            </label>
+            <div className="flex w-full justify-start gap-16 sm:gap-22 md:w-4/5 lg:w-3/5 lg:gap-26">
+              {["سكني", "تجاري"].map((type) => (
+                <motion.label
+                  key={type}
+                  className="flex cursor-pointer items-center"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <input
+                    type="radio"
+                    name="planType"
+                    value={type}
+                    checked={formData.planType === type}
+                    onChange={handleInputChange}
+                    className="sr-only"
+                  />
+                  <motion.div
+                    className={`ml-2 h-5 w-5 border-2 transition-colors duration-300 sm:h-6 sm:w-6 md:h-7 md:w-7 ${visibleFields.includes("city") && "lg:h-9 lg:w-9"} ${
+                      formData.planType === type
+                        ? "border-secondaryColor bg-secondaryColor"
+                        : "border-[#707070]"
+                    }`}
+                    animate={{
+                      backgroundColor:
+                        formData.planType === type ? "#d3a851" : "transparent",
+                    }}
+                  />
+                  <span className="text-secondaryTextColor pt-2 pr-2 text-[1.1rem] sm:text-[1.3rem] md:text-[1.4rem] lg:pt-3 lg:pr-4 lg:text-[1.7rem]">
+                    {type}
+                  </span>
+                </motion.label>
+              ))}
+            </div>
+          </motion.div>
+        )}
 
         {/* Area */}
-        <motion.div
-          className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
-          variants={inputVariants}
-        >
-          <label className={labelClasses}>المساحة المتوقعة</label>
-          <motion.input
-            type="text"
-            name="area"
-            value={formatNumber(formData.area)}
-            onChange={handleNumberInputChange}
-            className={`${inputClasses} [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none`}
-            whileFocus="focus"
+        {visibleFields.includes("area") && (
+          <motion.div
+            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
             variants={inputVariants}
-            required
-          />
-        </motion.div>
-
-        {/* Expected Price */}
-        <motion.div
-          className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
-          variants={inputVariants}
-        >
-          <label className={labelClasses}>الميزانية التقريبية</label>
-          <div
-            className={`flex w-full items-center justify-between gap-2 md:w-[80%] lg:w-[70%] lg:gap-2 xl:w-[70%]`}
           >
-            <div className="relative w-full flex-1">
-              <motion.input
-                type="text"
-                name="budget"
-                value={formatNumber(formData.budget)}
-                onChange={handleNumberInputChange}
-                className={`text-secondaryTextColor focus:border-secondaryColor/60 mb-3 w-full [appearance:textfield] border-2 border-[#fff]/27 bg-transparent p-0.5 text-right font-bold transition-colors duration-300 focus:outline-none sm:p-1 lg:p-2 xl:p-2.5 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none`}
-                whileFocus="focus"
-                variants={inputVariants}
-                required
-              />
+            <label className={labelClasses}>المساحة المتوقعة</label>
+            <motion.input
+              type="text"
+              name="area"
+              value={formatNumber(formData.area)}
+              onChange={handleNumberInputChange}
+              className={`${inputClasses} [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none`}
+              whileFocus="focus"
+              variants={inputVariants}
+              required
+            />
+          </motion.div>
+        )}
+
+        {/* Expected Budget */}
+        {visibleFields.includes("budget") && (
+          <motion.div
+            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
+            variants={inputVariants}
+          >
+            <label className={labelClasses}>الميزانية التقريبية</label>
+            <div
+              className={`flex w-full items-center justify-between gap-2 md:w-[80%] lg:w-[70%] lg:gap-2 xl:w-[70%]`}
+            >
+              <div className="relative w-full flex-1">
+                <motion.input
+                  type="text"
+                  name="budget"
+                  value={formatNumber(formData.budget)}
+                  onChange={handleNumberInputChange}
+                  className={`text-secondaryTextColor focus:border-secondaryColor/60 mb-3 w-full [appearance:textfield] border-2 border-[#fff]/27 bg-transparent p-0.5 text-right font-bold transition-colors duration-300 focus:outline-none sm:p-1 lg:p-2 xl:p-2.5 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none`}
+                  whileFocus="focus"
+                  variants={inputVariants}
+                  required
+                />
+              </div>
+              <div className="mb-2 flex-shrink-0 sm:mb-1">
+                <img
+                  src={currencyImage}
+                  alt="SAR"
+                  className="h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14"
+                />
+              </div>
             </div>
-            <div className="mb-2 flex-shrink-0 sm:mb-1">
-              <img
-                src={currencyImage}
-                alt="SAR"
-                className="h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14"
-              />
-            </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        )}
 
         {/* Submit Button - positioned to extend outside form */}
         <motion.div
           variants={inputVariants}
-          className="absolute -bottom-[clamp(5%,5.5vw,6%)] left-[32%] mx-auto w-[clamp(60%,67vw,75%)] -translate-x-1/2 sm:left-[clamp(23%,26.5vw,26%)]"
+          className="absolute -bottom-[clamp(5%,5.5vw,6%)] left-[30%] mx-auto w-[clamp(60%,67vw,75%)] -translate-x-1/2 sm:left-[clamp(23%,26.5vw,26%)]"
         >
           <Button
             type="submit"
-            className="text-primaryTextColor bg-secondaryColor w-[50%] pt-[0.55rem] pb-2 text-[1.4rem] font-bold sm:w-[35%] sm:pt-3 sm:text-3xl lg:pt-5 lg:pb-3 lg:text-4xl"
+            className="text-primaryTextColor bg-secondaryColor w-[45%] pt-3 pb-2 text-2xl font-bold sm:w-[35%] sm:text-3xl lg:pt-5 lg:pb-3 lg:text-4xl"
             bgColor="bg-secondaryColor"
             animated={true}
             initialHeight={70}

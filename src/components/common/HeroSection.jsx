@@ -10,7 +10,7 @@ const HeroSection = ({
   alt = "hero image",
 
   // Layout props
-  height = "max-h-[1080px]",
+  height = "min-h-[60vh]",
   className = "",
 
   // Overlay props
@@ -75,8 +75,7 @@ const HeroSection = ({
       "absolute bottom-0 right-0 flex items-end justify-end pb-20 pr-20",
   };
 
-  const sectionClasses =
-    `relative ${height} ${className} overflow-hidden`.trim();
+  const sectionClasses = `relative ${className} overflow-hidden`.trim();
   const overlayClasses =
     `absolute top-0 left-0 h-full w-full ${overlayGradient} ${overlayClassName}`.trim();
   const contentClasses =
@@ -98,7 +97,7 @@ const HeroSection = ({
           {video ? (
             <motion.video
               src={video}
-              className="h-full min-h-[60vh] w-full object-cover object-center"
+              className={`h-full ${height} w-full object-cover object-center`}
               autoPlay={autoPlay}
               muted={muted}
               loop={loop}
@@ -113,7 +112,7 @@ const HeroSection = ({
           ) : image ? (
             <motion.img
               src={image}
-              className="h-full min-h-[60vh] w-full object-cover object-center"
+              className={`h-full ${height} w-full scale-x-130 object-fill object-center sm:scale-x-100 sm:object-cover`}
               alt={alt}
               onLoad={handleMediaLoad}
               onError={handleMediaError}

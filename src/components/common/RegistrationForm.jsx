@@ -20,6 +20,15 @@ const RegistrationForm = () => {
     // Allow only numbers and decimal point
     let cleanValue = value.toString().replace(/[^0-9.]/g, "");
 
+    // Prevent leading zeros (except for decimal numbers like 0.5)
+    if (
+      cleanValue.length > 1 &&
+      cleanValue[0] === "0" &&
+      cleanValue[1] !== "."
+    ) {
+      cleanValue = cleanValue.replace(/^0+/, "");
+    }
+
     // Ensure only one decimal point exists
     const parts = cleanValue.split(".");
     if (parts.length > 2) {
@@ -47,6 +56,15 @@ const RegistrationForm = () => {
 
     // Allow only numbers and decimal point
     let cleanValue = value.replace(/[^0-9.]/g, "");
+
+    // Prevent leading zeros (except for decimal numbers like 0.5)
+    if (
+      cleanValue.length > 1 &&
+      cleanValue[0] === "0" &&
+      cleanValue[1] !== "."
+    ) {
+      cleanValue = cleanValue.replace(/^0+/, "");
+    }
 
     // Ensure only one decimal point exists
     const parts = cleanValue.split(".");

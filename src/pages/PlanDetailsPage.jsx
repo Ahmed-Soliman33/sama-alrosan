@@ -9,6 +9,7 @@ import kharis_hero from "@assets/images/plan-details/kharis/kharis-hero.webp";
 import alwa7a_plan from "@assets/images/plan-details/alwa7a/alwa7a-plan.webp";
 import aldmam_plan from "@assets/images/plan-details/aldmam/aldmam-plan.webp";
 import kharis_plan from "@assets/images/plan-details/kharis/kharis-plan.webp";
+import ImageSection from "@components/common/ImageSection";
 
 const PLANS = {
   الواحة: {
@@ -53,13 +54,19 @@ const PlanDetailsPage = () => {
   return (
     <>
       <SEOHelmet
-        title={plan.title}
+        title={`مخطط عقاري | ${plan.title}`}
         description={`تعرف على تاريخ وقصة نجاح ${plan.title}، الشركة الرائدة في التطوير العقاري بالمملكة العربية السعودية منذ أكثر من أربعة عقود.`}
         keywords={`${plan.title}، الشركة الرائدة في التطوير العقاري، التطوير العقاري، خبرة عقارية، السعودية`}
       />
       <HeroSection image={plan.hero} overlay={false}>
         <h1 className="sr-only">{plan.title}</h1>
       </HeroSection>
+
+      <ImageSection
+        image={plan.plan}
+        alt={`مخطط ${plan.title}`}
+        sectionClasses="relative max-h-[800px] overflow-hidden"
+      />
     </>
   );
 };

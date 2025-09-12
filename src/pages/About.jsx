@@ -21,7 +21,6 @@ const About = () => {
           backgroundImage: "url('/about_page_pattern.webp')",
         }}
       >
-        {" "}
         <AboutSection />
         <WhyChooseUs />
       </section>

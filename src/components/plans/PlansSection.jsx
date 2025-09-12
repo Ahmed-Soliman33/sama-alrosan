@@ -1,28 +1,27 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
+import { Skeleton } from "@components/ui/skeleton";
 import alwa7a from "@assets/images/home/alwa7a.webp";
 import aldmam from "@assets/images/home/aldmam.webp";
 import kharis from "@assets/images/home/kharis.webp";
 import gof from "@assets/images/home/gof.webp";
 import borg_mesk from "@assets/images/home/borg-mesk.webp";
-import { SwiperSlide } from "swiper/react";
 import Heading from "@components/common/Heading";
-import { useNavigate } from "react-router-dom";
-import { Skeleton } from "@components/ui/skeleton";
 
-const PROJECTS = [
+const PLANS = [
   {
     id: "الواحة",
     title: "الواحة",
     image: alwa7a,
   },
   {
-    id: "طريق الدمام",
+    id: "الدمام",
     title: "طريق الدمام",
     image: aldmam,
   },
   {
-    id: "طريق خريص",
+    id: "خريص",
     title: "طريق خريص",
     image: kharis,
   },
@@ -30,19 +29,23 @@ const PROJECTS = [
     id: "الجوف",
     title: "الجوف",
     image: gof,
+    no_page: true,
   },
   {
     id: "برج مسك",
     title: "برج مسك",
     image: borg_mesk,
+    no_page: true,
   },
 ];
 
 const PlansSection = () => {
   const navigate = useNavigate();
 
-  const handlePlanClick = (projectId) => {
-    navigate(`/plans/${projectId}`);
+  const handlePlanClick = (id) => {
+    const plan = PLANS.find((plan) => plan.id === id);
+
+    if (!plan.no_page) navigate(`/plans/${id}`);
   };
 
   return (
@@ -55,7 +58,7 @@ const PlansSection = () => {
       </div>
 
       <div className="grid grid-cols-2 justify-center gap-3 sm:gap-10 md:grid-cols-3 md:gap-5 lg:gap-14 xl:grid-cols-[repeat(auto-fit,minmax(330px,1fr))] 2xl:grid-cols-4">
-        {PROJECTS.map((project, index) => (
+        {PLANS.map((project, index) => (
           <motion.div
             key={project.id}
             initial={{ opacity: 0, scale: 0.95 }}
@@ -130,7 +133,7 @@ export const PlansSectionSkeleton = () => {
       </div>
 
       <div className="grid grid-cols-2 justify-center gap-3 sm:gap-10 md:grid-cols-3 md:gap-5 lg:gap-14 xl:grid-cols-[repeat(auto-fit,minmax(330px,1fr))] 2xl:grid-cols-4">
-        {PROJECTS.map((item) => (
+        {PLANS.map((item) => (
           <div
             key={item.id}
             className="relative min-h-[20rem] overflow-hidden sm:min-h-[30rem]"

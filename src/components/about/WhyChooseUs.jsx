@@ -26,7 +26,7 @@ const BOXES = [
 const WhyChooseUs = () => {
   return (
     <motion.div
-      className="mx-auto max-w-[90vw] pt-10 pb-56 2xl:max-w-[80vw]"
+      className="mx-auto max-w-[90vw] pt-10 pb-30 md:pb-56 2xl:max-w-[80vw]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -48,7 +48,7 @@ const WhyChooseUs = () => {
       </motion.div>
 
       <motion.div
-        className="grid grid-cols-1 items-center justify-center gap-x-8 gap-y-6 pt-16 sm:grid-cols-2 md:grid-cols-3 lg:gap-x-12 lg:gap-y-8 xl:gap-x-20 xl:gap-y-14 2xl:gap-x-24"
+        className="grid grid-cols-1 items-center justify-center gap-x-8 gap-y-6 pt-8 sm:grid-cols-2 md:grid-cols-3 md:pt-16 lg:gap-x-12 lg:gap-y-8 xl:gap-x-20 xl:gap-y-14 2xl:gap-x-24"
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}

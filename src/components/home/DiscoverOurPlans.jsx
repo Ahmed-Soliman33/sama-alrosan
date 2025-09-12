@@ -19,19 +19,19 @@ import "swiper/css/autoplay";
 
 import Heading from "@components/common/Heading";
 
-const PROJECTS = [
+const PLANS = [
   {
     id: "الواحة",
     title: "الواحة",
     image: alwa7a,
   },
   {
-    id: "طريق الدمام",
+    id: "الدمام",
     title: "طريق الدمام",
     image: aldmam,
   },
   {
-    id: "طريق خريص",
+    id: "خريص",
     title: "طريق خريص",
     image: kharis,
   },
@@ -39,11 +39,13 @@ const PROJECTS = [
     id: "الجوف",
     title: "الجوف",
     image: gof,
+    no_page: true,
   },
   {
     id: "برج مسك",
     title: "برج مسك",
     image: borg_mesk,
+    no_page: true,
   },
 ];
 
@@ -51,8 +53,10 @@ const DiscoverOurPlans = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const handlePlanClick = (projectId) => {
-    navigate(`/plans/${projectId}`);
+  const handlePlanClick = (id) => {
+    const plan = PLANS.find((plan) => plan.id === id);
+
+    if (!plan.no_page) navigate(`/plans/${id}`);
   };
 
   return (
@@ -121,8 +125,8 @@ const DiscoverOurPlans = () => {
             className="mySwiper"
             onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
           >
-            {PROJECTS.map((project, index) => (
-              <SwiperSlide key={project.id}>
+            {PLANS.map((plan, index) => (
+              <SwiperSlide key={plan.id}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -139,15 +143,15 @@ const DiscoverOurPlans = () => {
                   }}
                   className="group cursor-pointer"
                   onClick={() => {
-                    handlePlanClick(project.id);
+                    handlePlanClick(plan.id);
                   }}
                 >
                   <div className="relative h-[28rem] overflow-hidden">
-                    {/* Project Image */}
+                    {/* plan Image */}
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                       style={{
-                        backgroundImage: `url(${project.image})`,
+                        backgroundImage: `url(${plan.image})`,
                       }}
                     />
 
@@ -170,7 +174,7 @@ const DiscoverOurPlans = () => {
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1 + 0.3 }}
                       >
-                        {project.title}
+                        {plan.title}
                       </motion.h3>
                     </div>
                   </div>

@@ -58,7 +58,7 @@ const AboutSection = () => {
         {BOXES.map(({ title, subtitles }, index) => (
           <motion.div
             key={index}
-            className="bg-primaryTextColor text-secondaryTextColor relative my-4 text-center md:my-8"
+            className="bg-primaryTextColor text-secondaryTextColor relative my-4 w-[85%] text-center md:my-8 md:w-auto"
             initial={{
               y: 60,
               opacity: 0,

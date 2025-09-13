@@ -60,26 +60,21 @@ const Footer = () => {
 
   return (
     <motion.footer
-      className="bg-primaryColor text-secondaryTextColor relative min-h-[423px] overflow-hidden bg-[url('/footer_pattern.webp')] bg-[length:50rem_auto] bg-[0px_245px] bg-no-repeat sm:bg-[length:80rem_auto] sm:bg-[0px_140px] xl:bg-[length:120rem_auto] xl:bg-[0px_0px]"
+      className="bg-primaryColor relative min-h-[423px] overflow-hidden bg-[url('/footer_pattern.webp')] bg-[length:50rem_auto] bg-[0px_245px] bg-no-repeat sm:bg-[length:80rem_auto] sm:bg-[0px_140px] xl:bg-[length:120rem_auto] xl:bg-[0px_0px]"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
     >
       {/* Content */}
-      <div className="relative z-10 px-6 pt-6 pb-12 lg:px-18 2xl:px-22">
+      <div className="relative z-10 px-6 pt-6 pb-12 md:px-10 lg:px-18 2xl:px-28">
         {/* Logo Section */}
         <motion.div
-          className="my-4 flex w-[10rem] max-w-[12rem] justify-start xl:w-[12rem]"
+          className="my-6 flex w-[10rem] max-w-[12rem] justify-start xl:w-[12rem]"
           variants={itemVariants}
         >
-          <Logo
-            width="100%"
-            height="100%"
-            className="brightness-0 invert filter"
-          />
+          <Logo width="100%" height="100%" />
         </motion.div>
-
         {/* Contact Info, Address, Customer Service, and Social Media */}
         <div className="grid grid-cols-2 items-center justify-start gap-x-8 gap-y-10 sm:max-w-[70%] 2xl:max-w-1/2">
           {/* Address */}

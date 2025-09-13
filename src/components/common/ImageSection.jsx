@@ -46,7 +46,7 @@ export default ImageSection;
 export const ImageSectionSkeleton = () => {
   return (
     <motion.div
-      className="relative min-h-[20vh] sm:h-[40vh]"
+      className="relative min-h-[20vh] sm:h-[50vh]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

@@ -20,7 +20,7 @@ const CarouselSection = ({ images = [] }) => {
   const carouselImages = images;
 
   return (
-    <div className="relative mx-auto w-full px-2 pt-12 pb-8 md:pt-20 md:pb-26 lg:max-w-7xl">
+    <div className="relative mx-auto w-full px-2 pt-12 pb-8 md:pt-20 md:pb-14 lg:max-w-5xl 2xl:max-w-6xl">
       <style>{`
         .swiper-button-prev,
         .swiper-button-next {
@@ -56,11 +56,11 @@ const CarouselSection = ({ images = [] }) => {
         }
 
         .custom-prev-arrow {
-          left: 30px;
+          left: 35px;
         }
 
         .custom-next-arrow {
-          right: 30px;
+          right: 35px;
         }
       `}</style>
 
@@ -123,7 +123,7 @@ const CarouselSection = ({ images = [] }) => {
             prevEl: ".swiper-button-prev",
           }}
           modules={[Navigation]}
-          className="mySwiper overflow-hidden"
+          className="mySwiper overflow-hidden hover:cursor-grab"
         >
           {carouselImages.map((image, index) => (
             <SwiperSlide key={index}>

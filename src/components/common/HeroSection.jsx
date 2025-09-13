@@ -85,7 +85,7 @@ const HeroSection = ({
     <>
       {/* Loading Screen */}
       <AnimatePresence>
-        {isLoading && (
+        {!isMediaLoaded && isLoading && (
           <LoadingScreen isVisible={true} message="جاري تحميل المحتوى..." />
         )}
       </AnimatePresence>

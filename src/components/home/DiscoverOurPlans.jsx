@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
@@ -49,7 +48,6 @@ const PLANS = [
 
 const DiscoverOurPlans = () => {
   const navigate = useNavigate();
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   const handlePlanClick = (id) => {
     const plan = PLANS.find((plan) => plan.id === id);
@@ -59,7 +57,7 @@ const DiscoverOurPlans = () => {
 
   return (
     <section className="px-4 py-20 sm:py-28 lg:py-32">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto md:px-5 lg:px-30 xl:max-w-7xl xl:px-10">
         {/* Section Header */}
         <motion.div
           className="mb-12 text-center"
@@ -107,7 +105,7 @@ const DiscoverOurPlans = () => {
                 spaceBetween: 16,
               },
               1024: {
-                slidesPerView: 4,
+                slidesPerView: 3,
                 spaceBetween: 16,
               },
               1280: {
@@ -116,12 +114,12 @@ const DiscoverOurPlans = () => {
               },
               1536: {
                 slidesPerView: 4,
-                spaceBetween: 54,
+                spaceBetween: 48,
               },
             }}
             modules={[Pagination, Autoplay]}
             className="mySwiper"
-            onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
+            // onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
           >
             {PLANS.map((plan, index) => (
               <SwiperSlide key={plan.id}>

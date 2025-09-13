@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="absolute top-0 right-0 left-0 z-50 bg-transparent">
-        <div className="mx-auto px-3 pt-4 sm:px-6 lg:px-20">
+        <div className="mx-auto px-3 pt-4 sm:px-6 lg:px-20 2xl:px-28">
           <div className="grid max-h-20 grid-cols-3 items-center justify-between md:flex">
             {/* Mobile menu button */}
             <div className="md:hidden">
@@ -76,12 +76,15 @@ const Navbar = () => {
             {/* Logo - Right side for Arabic layout */}
             <div className="flex flex-shrink-0 items-center justify-self-center">
               <div className="hidden xl:block">
-                <Logo width="12rem" height="6rem" />
+                <Logo width="10.5rem" height="5.6rem" />
               </div>
-              <div className="xl:hidden">
-                <Logo width="9.5rem" height="5rem" />
+              <div className="hidden sm:block xl:hidden">
+                <Logo width="9rem" height="4.5rem" />
               </div>
-              <div className="hidden pt-5 md:mr-12 md:block">
+              <div className="sm:hidden">
+                <Logo width="8.5rem" height="4.5rem" />
+              </div>
+              <div className="hidden pt-5 md:mr-14 md:block">
                 <NavigationLinks className="mr-4" />
               </div>
             </div>
@@ -90,7 +93,7 @@ const Navbar = () => {
             <div className="mb-[-10px] ml-2 justify-self-end">
               <Button
                 onClick={handleRegisterClick}
-                className="px-1 py-1 text-[.9rem] font-bold text-black md:px-2 md:py-2 md:text-xl xl:px-4 xl:text-2xl"
+                className="px-1 py-1.5 text-[.8rem] font-bold text-black sm:px-2 sm:py-2 sm:text-[.9rem] md:text-xl xl:px-3 xl:text-[1.3rem]"
                 animated={!isMobile}
               >
                 سجل اهتمامك

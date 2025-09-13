@@ -49,15 +49,15 @@ const PlansSection = () => {
   };
 
   return (
-    <section className="px-5 pt-24 pb-36 md:px-14 lg:px-20 xl:px-28">
+    <section className="mx-auto px-5 pt-24 pb-36 md:px-10 lg:max-w-[90%] lg:px-20 xl:max-w-[80%]">
       <div className="mb-10 text-center md:mb-14">
         <Heading>اكتشف مخططاتنا</Heading>
-        <p className="text-primaryTextColor/90 pt-2 text-[1.6rem] sm:text-3xl lg:text-3xl xl:text-4xl">
+        <p className="text-primaryTextColor/90 text-[1.35rem] sm:text-[1.5rem] md:pt-2 lg:text-[1.7rem] xl:text-[1.9rem]">
           جودة تبني مستقبلك، تملّك بثقة اليوم
         </p>
       </div>
 
-      <div className="grid grid-cols-2 justify-center gap-3 sm:gap-10 md:grid-cols-3 md:gap-5 lg:gap-14 xl:grid-cols-[repeat(auto-fit,minmax(330px,1fr))] 2xl:grid-cols-4">
+      <div className="grid grid-cols-2 justify-center gap-4 sm:gap-10 md:grid-cols-3 md:gap-5 lg:gap-8 xl:grid-cols-[repeat(minmax(330px,1fr))] 2xl:grid-cols-4">
         {PLANS.map((project, index) => (
           <motion.div
             key={project.id}

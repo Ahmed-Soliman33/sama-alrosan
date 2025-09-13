@@ -81,8 +81,8 @@ const ServicesSection = () => {
   };
 
   return (
-    <section className="bg-white px-14 py-16 md:px-4">
-      <div className="mx-auto max-w-7xl">
+    <section className="bg-white px-5 py-16 sm:px-14 md:px-20">
+      <div className="mx-auto lg:max-w-5xl">
         {/* Section Header */}
         <motion.div
           className="mb-8 text-center md:mb-12"
@@ -96,7 +96,7 @@ const ServicesSection = () => {
 
         {/* Services Grid */}
         <motion.div
-          className="grid grid-cols-1 items-center justify-center gap-[clamp(1.5rem,4vw,5.5rem)] sm:grid-cols-2 md:grid-cols-3"
+          className="grid grid-cols-1 items-center justify-center gap-[clamp(1.5rem,3vw,4rem)] sm:grid-cols-2 md:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -111,11 +111,14 @@ const ServicesSection = () => {
                 y: -5,
                 transition: { duration: 0.3, ease: "easeOut" },
               }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-primaryColor relative h-[clamp(12rem,20vw,13.5rem)] cursor-pointer overflow-hidden"
+              className={`bg-secondaryColor relative h-[clamp(6.5rem,10vw,8rem)] overflow-hidden rounded-lg ${
+                index === 2
+                  ? "sm:col-span-2 sm:mx-auto sm:w-[50%] md:col-span-1 md:mx-0 md:w-auto md:max-w-none"
+                  : ""
+              }`}
             >
               {/* Content */}
-              <div className="relative z-10 flex h-full flex-col items-center justify-center pt-1.5">
+              <div className="relative z-10 flex h-full items-center justify-center gap-2 sm:flex-col sm:gap-0">
                 {service.subtitle.map((line, lineIndex) => (
                   <motion.div
                     key={lineIndex}
@@ -125,15 +128,13 @@ const ServicesSection = () => {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 + lineIndex * 0.1 }}
                   >
-                    <Heading
-                      className={
-                        lineIndex === 0
-                          ? "text-secondaryColor"
-                          : "-mt-2 text-white"
-                      }
+                    <h3
+                      className={`${
+                        lineIndex === 0 ? "text-white" : "text-primaryTextColor"
+                      } text-[1.9rem] font-bold sm:text-[1.6rem] md:pt-1.5 lg:pt-2 xl:text-[2.1rem]`}
                     >
                       {line}
-                    </Heading>
+                    </h3>
                   </motion.div>
                 ))}
               </div>

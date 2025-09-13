@@ -98,35 +98,35 @@ const RegistrationForm = ({ visibleFields }) => {
   };
 
   const labelClasses =
-    "text-secondaryTextColor w-[45%] xl:w-[30%] lg:w-[35%] md:w-[40%] sm:w-[45%] text-right pt-2 mb-2 sm:mb-3 xl:text-3xl lg:text-2xl md:text-2xl sm:text-lg text-[0.9rem] font-bold";
+    "text-secondaryTextColor w-[45%] xl:w-[24%] lg:w-[28%] md:w-[32%] sm:w-[45%] text-right pt-1.5 mb-1.5 sm:mb-2.5 xl:text-2xl lg:text-xl md:text-xl sm:text-lg text-[0.9rem] font-bold";
 
   const inputClasses =
-    "text-secondaryTextColor font-bold mb-3  xl:w-[70%] lg:w-[65%] md:w-[80%] w-[100%] border-2 border-[#fff]/27 focus:border-secondaryColor/60 focus:outline-none bg-transparent xl:p-2.5 lg:p-2  sm:p-1 p-0.5  text-right transition-colors duration-300";
+    "text-secondaryTextColor font-bold mb-2.5 xl:w-[74%] lg:w-[72%] md:w-[68%] w-[100%] border-2 border-[#fff]/27 focus:border-secondaryColor/60 focus:outline-none bg-transparent lg:p-1.5  sm:p-1 p-0.5 text-right transition-colors duration-300";
 
   return (
     <motion.div
-      className="bg-primaryTextColor relative mx-auto my-16 px-4 pt-6 pb-16 sm:max-w-6xl sm:px-8 sm:pt-12 md:pb-20 lg:max-w-5xl lg:px-13"
+      className="bg-primaryTextColor relative mx-auto my-12 px-4 pt-5 pb-12 sm:px-6 sm:pt-10 md:max-w-[87%] md:pb-16 lg:max-w-4xl lg:px-10"
       variants={containerVariants}
       initial="initial"
       animate="animate"
     >
       {/* Header - positioned top right */}
       <motion.div
-        className="bg-primaryTextColor absolute -top-[5%] right-0 px-3 pt-4 sm:-top-[6%] sm:px-4 lg:-top-[7%] lg:px-7 lg:pt-6 lg:pb-2"
+        className="bg-primaryTextColor absolute -top-[5%] right-0 px-3 pt-3 sm:-top-[6%] sm:px-3 lg:-top-[7%] lg:px-5 lg:pt-4 lg:pb-1.5"
         variants={inputVariants}
       >
-        <h2 className="text-secondaryTextColor text-[1.05rem] font-bold sm:text-xl md:text-2xl lg:text-3xl">
+        <h2 className="text-secondaryTextColor text-[1.05rem] font-bold sm:text-xl md:text-xl lg:text-2xl">
           سجل اهتمامك
         </h2>
       </motion.div>
       <form
         onSubmit={handleSubmit}
-        className="mt-10 space-y-4 sm:space-y-8 lg:mt-14 lg:space-y-11"
+        className="mt-8 space-y-3 sm:space-y-6 lg:mt-11 lg:space-y-8"
       >
         {/* Full Name */}
         {visibleFields.includes("name") && (
           <motion.div
-            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
+            className="flex flex-col sm:flex-row sm:items-center xl:gap-12"
             variants={inputVariants}
           >
             <label className={labelClasses}>الاسم الكامل</label>
@@ -146,7 +146,7 @@ const RegistrationForm = ({ visibleFields }) => {
         {/* Phone Number */}
         {visibleFields.includes("phone") && (
           <motion.div
-            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
+            className="flex flex-col sm:flex-row sm:items-center xl:gap-12"
             variants={inputVariants}
           >
             <label className={labelClasses}>رقــــــم الجـــــوال</label>
@@ -166,7 +166,7 @@ const RegistrationForm = ({ visibleFields }) => {
         {/* City */}
         {visibleFields.includes("city") && (
           <motion.div
-            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
+            className="flex flex-col sm:flex-row sm:items-center xl:gap-12"
             variants={inputVariants}
           >
             <label className={labelClasses}>المدينة المفضلة</label>
@@ -186,7 +186,7 @@ const RegistrationForm = ({ visibleFields }) => {
         {/* Plan Type */}
         {visibleFields.includes("planType") && (
           <motion.div
-            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
+            className="flex flex-col sm:flex-row sm:items-center xl:gap-12"
             variants={inputVariants}
           >
             <label className={labelClasses}>
@@ -194,7 +194,7 @@ const RegistrationForm = ({ visibleFields }) => {
                 ? "نـــــــــــــوع المخــطط"
                 : "مجال الإهتمام"}
             </label>
-            <div className="flex w-full justify-start gap-16 sm:gap-22 md:w-4/5 lg:w-3/5 lg:gap-26">
+            <div className="flex w-full justify-start gap-12 sm:gap-18 md:w-[68%] lg:w-[72%] lg:gap-20 xl:w-[74%]">
               {["سكني", "تجاري"].map((type) => (
                 <motion.label
                   key={type}
@@ -211,7 +211,7 @@ const RegistrationForm = ({ visibleFields }) => {
                     className="sr-only"
                   />
                   <motion.div
-                    className={`ml-2 h-5 w-5 border-2 transition-colors duration-300 sm:h-6 sm:w-6 md:h-7 md:w-7 ${visibleFields.includes("city") && "lg:h-9 lg:w-9"} ${
+                    className={`ml-2 h-5 w-5 border-2 transition-colors duration-300 sm:h-6 sm:w-6 md:h-6 md:w-6 ${visibleFields.includes("city") && "lg:h-7 lg:w-7"} ${
                       formData.planType === type
                         ? "border-secondaryColor bg-secondaryColor"
                         : "border-[#707070]"
@@ -221,7 +221,7 @@ const RegistrationForm = ({ visibleFields }) => {
                         formData.planType === type ? "#d3a851" : "transparent",
                     }}
                   />
-                  <span className="text-secondaryTextColor pt-2 pr-2 text-[1.1rem] sm:text-[1.3rem] md:text-[1.4rem] lg:pt-3 lg:pr-4 lg:text-[1.7rem]">
+                  <span className="text-secondaryTextColor pt-1.5 pr-2 text-[1.1rem] sm:text-[1.3rem] md:text-[1.2rem] lg:pt-2 lg:pr-3 lg:text-[1.4rem]">
                     {type}
                   </span>
                 </motion.label>
@@ -233,7 +233,7 @@ const RegistrationForm = ({ visibleFields }) => {
         {/* Area */}
         {visibleFields.includes("area") && (
           <motion.div
-            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
+            className="flex flex-col sm:flex-row sm:items-center xl:gap-12"
             variants={inputVariants}
           >
             <label className={labelClasses}>المساحة المتوقعة</label>
@@ -253,12 +253,12 @@ const RegistrationForm = ({ visibleFields }) => {
         {/* Expected Budget */}
         {visibleFields.includes("budget") && (
           <motion.div
-            className="flex flex-col sm:flex-row sm:items-center sm:gap-4"
+            className="flex flex-col sm:flex-row sm:items-center xl:gap-12"
             variants={inputVariants}
           >
             <label className={labelClasses}>الميزانية التقريبية</label>
             <div
-              className={`flex w-full items-center justify-between gap-2 md:w-[80%] lg:w-[70%] lg:gap-2 xl:w-[70%]`}
+              className={`flex w-full items-center justify-between gap-2 md:w-[68%] lg:w-[72%] lg:gap-2 xl:w-[74%]`}
             >
               <div className="relative w-full flex-1">
                 <motion.input
@@ -266,17 +266,17 @@ const RegistrationForm = ({ visibleFields }) => {
                   name="budget"
                   value={formatNumber(formData.budget)}
                   onChange={handleNumberInputChange}
-                  className={`text-secondaryTextColor focus:border-secondaryColor/60 mb-3 w-full [appearance:textfield] border-2 border-[#fff]/27 bg-transparent p-0.5 text-right font-bold transition-colors duration-300 focus:outline-none sm:p-1 lg:p-2 xl:p-2.5 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none`}
+                  className={`text-secondaryTextColor focus:border-secondaryColor/60 mb-2.5 w-full [appearance:textfield] border-2 border-[#fff]/27 bg-transparent p-0.5 text-right font-bold transition-colors duration-300 focus:outline-none sm:p-1 lg:p-1.5 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none`}
                   whileFocus="focus"
                   variants={inputVariants}
                   required
                 />
               </div>
-              <div className="mb-2 flex-shrink-0 sm:mb-1">
+              <div className="mb-1.5 flex-shrink-0 sm:mb-1">
                 <img
                   src={currencyImage}
                   alt="SAR"
-                  className="h-10 w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14"
+                  className="h-8 w-8 sm:h-10 sm:w-10 lg:h-11 lg:w-11"
                 />
               </div>
             </div>
@@ -286,14 +286,14 @@ const RegistrationForm = ({ visibleFields }) => {
         {/* Submit Button - positioned to extend outside form */}
         <motion.div
           variants={inputVariants}
-          className="absolute -bottom-[clamp(5%,5.5vw,6%)] left-[30%] mx-auto w-[clamp(60%,67vw,75%)] -translate-x-1/2 sm:left-[clamp(23%,26.5vw,26%)]"
+          className={`absolute left-[30%] mx-auto w-[clamp(60%,67vw,75%)] -translate-x-1/2 sm:left-[clamp(23%,26.5vw,26%)] ${visibleFields.includes("city") ? "-bottom-[clamp(5%,5.5vw,6%)]" : "-bottom-[clamp(5%,5.5vw,10%)]"}`}
         >
           <Button
             type="submit"
-            className="text-primaryTextColor bg-secondaryColor w-[45%] pt-3 pb-2 text-2xl font-bold sm:w-[35%] sm:text-3xl lg:pt-5 lg:pb-3 lg:text-4xl"
+            className="text-primaryTextColor bg-secondaryColor w-[45%] pt-2 pb-2 text-2xl font-bold sm:w-[35%] sm:text-2xl lg:pt-4 lg:pb-2.5 lg:text-3xl"
             bgColor="bg-secondaryColor"
             animated={true}
-            initialHeight={70}
+            initialHeight={66}
           >
             إرسال
           </Button>

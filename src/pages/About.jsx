@@ -16,7 +16,7 @@ const About = () => {
         <h1 className="sr-only">من نحن</h1>
       </HeroSection>
       <section
-        className="relative min-h-screen bg-[length:45rem_auto] bg-[0px_445px] bg-no-repeat sm:bg-[length:80rem_auto] sm:bg-[0px_140px] xl:bg-[length:auto_95%] xl:bg-[0px_30px]"
+        className="relative bg-[length:45rem_auto] bg-[0px_445px] bg-no-repeat sm:bg-[length:80rem_auto] sm:bg-[0px_140px] xl:bg-[length:auto_95%] xl:bg-[0px_30px]"
         style={{
           backgroundImage: "url('/about_page_pattern.webp')",
         }}

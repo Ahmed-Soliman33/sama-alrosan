@@ -90,12 +90,13 @@ const PlanDetailsPage = () => {
         <h1 className="sr-only">{plan.title}</h1>
       </HeroSection>
 
-      <div className="mx-auto mt-6 mb-4 w-full px-6 sm:mt-8 sm:mb-6 lg:mt-12 lg:mb-10 lg:px-10 xl:px-16">
+      <div className="mx-auto mt-6 mb-4 w-full px-4 sm:mt-8 sm:mb-6 lg:mt-12 lg:mb-10 lg:px-10 xl:px-16">
         <div className="flex justify-end">
           <Button
             bgColor="bg-primaryTextColor"
-            className="text-secondaryTextColor px-4 pt-1.5 pb-1.5 text-[0.8rem] font-bold sm:text-sm md:text-base lg:text-[1.2rem] xl:text-xl"
+            className="text-secondaryTextColor px-2 pt-1.5 pb-1.5 text-[0.8rem] font-bold sm:text-sm md:px-4 md:text-base lg:text-[1rem] xl:text-[1.1rem]"
             onClick={goToMapHandler}
+            initialHeight={85}
           >
             اطلع على الموقع في الخريطة
           </Button>
@@ -116,7 +117,7 @@ const PlanDetailsPage = () => {
         <CarouselSection images={plan.carousel_images} />
       </Suspense>
 
-      <div className="px-5">
+      <div className="mb-26 px-5 sm:px-10 md:mb-32 lg:px-30 xl:px-50">
         <RegistrationForm visibleFields={["phone", "name", "planType"]} />
       </div>
     </>

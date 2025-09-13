@@ -27,7 +27,7 @@ const BANNERS = [
 
 const FooterBannersSection = () => {
   return (
-    <section className="grid grid-cols-1 grid-rows-2 gap-8 py-20 md:grid-cols-3 md:pb-40 lg:gap-x-12 lg:gap-y-11">
+    <section className="grid grid-cols-1 grid-rows-2 gap-8 py-20 md:grid-cols-3 md:pb-40 lg:gap-x-12 lg:gap-y-10 xl:max-h-[95vh] xl:gap-y-11">
       {BANNERS.map((banner) => (
         <div className={`${banner.className} overflow-hidden`} key={banner.id}>
           <motion.img
@@ -38,7 +38,7 @@ const FooterBannersSection = () => {
               duration: 0.6,
               ease: [0.25, 0.25, 0, 1],
             }}
-            className="h-full w-full object-cover"
+            className="w-full object-cover"
           />
           <h3 className="sr-only absolute bottom-8 left-1/2 -translate-x-1/2 text-lg font-semibold text-white md:text-2xl">
             {banner.title}

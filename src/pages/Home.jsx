@@ -34,11 +34,11 @@ const Home = () => {
         <ServiceIntro />
       </div>
 
-      <ServicesSection />
-
       <Suspense fallback={<DiscoverOurPlansSkeleton />}>
         <DiscoverOurPlans />
       </Suspense>
+
+      <ServicesSection />
 
       <div className="h-[100vh] text-center"></div>
 
